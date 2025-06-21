@@ -1,4 +1,3 @@
-require("dotenv").config();       // Si pegás .env localmente
 const express = require('express');
 const sequelize = require("./database");
 const PlanillaAuxilio = require("./models/PlanillaAuxilio");
