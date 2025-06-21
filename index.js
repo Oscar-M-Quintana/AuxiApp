@@ -1,6 +1,8 @@
 const express = require('express');
 const sequelize = require("./database");
 const PlanillaAuxilio = require("./models/PlanillaAuxilio");
+const planillasRoutes = require('./routes/planillas');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,3 +38,4 @@ sequelize.sync().then(() => {
   console.error("❌ Error al sincronizar la DB:", err);
 });
 
+app.use('/planillas', planillasRoutes);
