@@ -1,41 +1,25 @@
-const express = require('express');
+// index.js
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
 const sequelize = require("./database");
 const PlanillaAuxilio = require("./models/PlanillaAuxilio");
-const planillasRoutes = require('./routes/planillas');
-
+const planillasRoutes = require("./routes/planillas");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
+app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => res.send('Hello World!'));
+// Usar rutas desde el archivo externo
+app.use("/planillas", planillasRoutes);
 
-app.get("/planillas", async (req, res) => {
-  try {
-    const planillas = await PlanillaAuxilio.findAll();
-    res.json(planillas);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error leyendo planillas" });
-  }
-});
-
-app.post("/planillas", async (req, res) => {
-  try {
-    const nueva = await PlanillaAuxilio.create(req.body);
-    res.status(201).json(nueva);
-  } catch (err) {
-    console.error(err);
-    res.status(400).json({ error: "Error creando planilla", details: err.message });
-  }
-});
-
+// Conectar a la base de datos y sincronizar modelos
 sequelize.sync().then(() => {
-  console.log("✅ Base de datos sincronizada");
-  app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
-}).catch(err => {
-  console.error("❌ Error al sincronizar la DB:", err);
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
+  });
+}).catch((error) => {
+  console.error("Error al conectar con la base de datos:", error);
 });
-
-app.use('/planillas', planillasRoutes);
