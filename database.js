@@ -6,7 +6,8 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   dialect: "mysql",
   dialectOptions: {
     ssl: {
-      require: true
+      require: true,
+      rejectUnauthorized: false // Esto es necesario si estás usando un certificado SSL auto-firmado
     }
   },
   logging: false // desactivar logs de SQL en consola
