@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/planillas", planillasRoutes);
 
 // Conectar a la base de datos y sincronizar modelos
-sequelize.sync().then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
   });
