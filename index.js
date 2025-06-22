@@ -5,6 +5,9 @@ const cors = require("cors");
 const sequelize = require("./database");
 const PlanillaAuxilio = require("./models/PlanillaAuxilio");
 const planillasRoutes = require("./routes/planillas");
+const authRoutes = require("./routes/auth");
+const usuarioRoutes = require('./routes/usuario');
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -14,6 +17,9 @@ app.use(express.json());
 
 // Usar rutas desde el archivo externo
 app.use("/planillas", planillasRoutes);
+app.use("/auth", authRoutes);
+app.use('/usuarios', usuarioRoutes);
+
 
 // Conectar a la base de datos y sincronizar modelos
 sequelize.sync({ force: true }).then(() => {
