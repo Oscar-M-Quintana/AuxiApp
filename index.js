@@ -6,7 +6,7 @@ const sequelize = require("./database");
 const PlanillaAuxilio = require("./models/PlanillaAuxilio");
 const planillasRoutes = require("./routes/planillas");
 const authRoutes = require("./routes/auth");
-const usuarioRoutes = require('./routes/usuario');
+const usuarioRoutes = require('./routes/usuarios');
 
 
 const app = express();
