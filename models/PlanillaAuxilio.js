@@ -19,6 +19,18 @@ const PlanillaAuxilio = sequelize.define("PlanillaAuxilio", {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  latitud: {
+  type: DataTypes.FLOAT,
+  allowNull: true
+  },
+  longitud: {
+    type: DataTypes.FLOAT,
+    allowNull: true
+  },
+  finalizada: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
+  },
   datos_auto: {
     type: DataTypes.STRING,
     allowNull: false,

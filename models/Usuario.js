@@ -1,3 +1,5 @@
+// models/Usuario.js
+
 const { DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
@@ -19,6 +21,16 @@ const Usuario = sequelize.define("Usuario", {
   tipo_auxilio: {
     type: DataTypes.ENUM("grúa", "mecánica ligera"),
     allowNull: true // solo se usa si el rol es auxilio
+  },
+  latitud: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+    comment: "Solo se usa si el rol es auxilio"
+  },
+  longitud: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+    comment: "Solo se usa si el rol es auxilio"
   }
 });
 

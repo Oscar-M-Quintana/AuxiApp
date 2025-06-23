@@ -7,7 +7,8 @@ const PlanillaAuxilio = require("./models/PlanillaAuxilio");
 const planillasRoutes = require("./routes/planillas");
 const authRoutes = require("./routes/auth");
 const usuarioRoutes = require('./routes/usuarios');
-
+const mapaRoutes = require('./routes/mapa');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -19,6 +20,8 @@ app.use(express.json());
 app.use("/planillas", planillasRoutes);
 app.use("/auth", authRoutes);
 app.use('/usuarios', usuarioRoutes);
+app.use('/mapa', mapaRoutes);
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Conectar a la base de datos y sincronizar modelos
