@@ -14,6 +14,21 @@
   <script defer src="js/mapa.js"></script>
 </head>
 <body>
+    <div class="navbar">
+  <h1>AuxiApp - Mapa</h1>
+  <div class="usuario">
+    <span id="usuario-logueado">Hola, ...</span>
+    <button onclick="location.href='/'">Volver</button>
+  </div>
+</div>
+
+<div id="map" style="height: calc(100vh - 60px);"></div>
+
+<div class="leyenda">
+  <strong>🗺 Leyenda:</strong><br>
+  🔴 Planilla activa<br>
+  🔵 Auxilio disponible
+</div>
   <div id="map" style="height: 100vh;"></div>
 </body>
 </html>

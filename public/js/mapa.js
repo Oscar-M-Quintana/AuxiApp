@@ -40,4 +40,14 @@ fetch("/mapa/datos", {
     console.error("Error al cargar el mapa:", err);
     alert("Error al obtener datos del mapa");
   });
+const tokenUser = localStorage.getItem("token");
+if (tokenUser) {
+  const user = decodificarToken(tokenUser);
+  document.getElementById("usuario-logueado").innerText = `Hola, ${user.email}`;
+}
 
+function decodificarToken(token) {
+  const payload = token.split('.')[1];
+  const decoded = JSON.parse(atob(payload));
+  return decoded;
+}

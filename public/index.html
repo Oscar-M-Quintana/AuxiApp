@@ -3,16 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>AuxiApp</title>
-
-  <!-- Estilos propios -->
   <link rel="stylesheet" href="css/estilos.css">
-
-  <!-- Script para lógica general del frontend -->
   <script defer src="js/app.js"></script>
 </head>
 <body>
-  <h1>AuxiApp - Gestión de Planillas</h1>
 
+  <!-- Navbar fija -->
+  <div class="navbar">
+    <h1>AuxiApp</h1>
+    <div class="usuario">
+      <span id="usuario-logueado">Hola, ...</span>
+      <button onclick="logout()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <!-- Texto introductorio (visible antes del login) -->
+  <div id="intro">
+    <p>Bienvenido a AuxiApp, la aplicación para gestionar planillas de auxilios.</p>
+    <p>Inicia sesión para ver tus planillas activas.</p>
+    <p>Si no tienes cuenta, contacta al administrador.</p>
+  </div>
+
+  <!-- Formulario de login -->
   <div id="login">
     <h2>Login</h2>
     <input type="email" id="email" placeholder="Email"><br>
@@ -20,12 +32,14 @@
     <button onclick="login()">Iniciar sesión</button>
   </div>
 
+  <!-- Vista principal con listado y botón de mapa -->
   <div id="main" style="display:none;">
-    <button onclick="logout()">Cerrar sesión</button>
     <h2>Planillas activas</h2>
     <ul id="lista-planillas"></ul>
     <br>
     <button onclick="window.open('/mapa.html', '_blank')">🗺 Ver Mapa</button>
   </div>
+
 </body>
 </html>
+

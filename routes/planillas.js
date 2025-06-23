@@ -103,5 +103,17 @@ router.post("/", authorizeRole("aseguradora"), async (req, res) => {
   }
 });
 
+// Obtener todas las planillas (solo operador)
+router.get("/", authorizeRole("operador"), async (req, res) => {
+  try {
+    const planillas = await PlanillaAuxilio.findAll({
+      order: [['createdAt', 'DESC']]
+    });
+    res.json(planillas);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener planillas" });
+  }
+});
 
 module.exports = router;

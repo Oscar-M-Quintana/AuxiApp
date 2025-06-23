@@ -1,5 +1,12 @@
 const API_BASE = "/";
 
+function decodificarToken(token) {
+  const payload = token.split('.')[1];
+  const decoded = JSON.parse(atob(payload));
+  return decoded;
+}
+
+
 function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -27,24 +34,28 @@ function logout() {
 
 function mostrarPlanillas() {
   document.getElementById("login").style.display = "none";
+  document.getElementById("intro").style.display = "none";
   document.getElementById("main").style.display = "block";
 
   const token = localStorage.getItem("token");
+  const user = decodificarToken(token);
+  document.getElementById("usuario-logueado").innerText = `Hola, ${user.email}`;
+
   fetch(API_BASE + "planillas", {
     headers: {
       Authorization: "Bearer " + token
     }
   })
-    .then(res => res.json())
-    .then(planillas => {
-      const lista = document.getElementById("lista-planillas");
-      lista.innerHTML = "";
-      planillas.forEach(p => {
-        const li = document.createElement("li");
-        li.innerText = `${p.cliente} - ${p.tipo_auxilio} - ${p.estado}`;
-        lista.appendChild(li);
-      });
+  .then(res => res.json())
+  .then(planillas => {
+    const lista = document.getElementById("lista-planillas");
+    lista.innerHTML = "";
+    planillas.forEach(p => {
+      const li = document.createElement("li");
+      li.innerText = `${p.cliente} - ${p.tipo_auxilio} - ${p.estado}`;
+      lista.appendChild(li);
     });
+  });
 }
 
 if (localStorage.getItem("token")) {
