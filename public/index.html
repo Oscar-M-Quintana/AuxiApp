@@ -43,6 +43,18 @@
         <br>
         <button onclick="window.open('/mapa.html', '_blank')">🗺 Ver Mapa</button>
     </div>
+    <div id="detalle-planilla"
+        style="display:none; margin-top: 20px; padding: 16px; background: #eef3f8; border-radius: 6px;">
+        <h3>Detalle de planilla</h3>
+        <p id="detalle-contenido"></p>
+        <button onclick="cerrarDetallePlanilla()">Cerrar</button>
+        <div id="form-finalizar" style="margin-top: 10px;">
+            <label for="observaciones">Observaciones finales:</label><br>
+            <textarea id="observaciones" rows="3" style="width: 100%; margin-top: 5px;"></textarea><br>
+            <button onclick="finalizarPlanilla()">Finalizar planilla</button>
+        </div>
+    </div>
+
 
 </body>
 
