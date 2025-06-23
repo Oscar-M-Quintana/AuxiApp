@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
-  <title>Mapa de Auxilios</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <title>Mapa de Auxilios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Estilos Leaflet + propios -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="css/estilos.css">
+    <!-- Estilos Leaflet + propios -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/estilos.css">
 
-  <!-- Leaflet JS + tu script -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script defer src="js/mapa.js"></script>
+    <!-- Leaflet JS + tu script -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script defer src="js/mapa.js"></script>
 </head>
+
 <body>
+    <div style="text-align:center; margin-bottom: 20px;">
+        <img src="assets/icono.png" alt="Logo AuxiApp" style="width: 120px;">
+    </div>
     <div class="navbar">
-  <h1>AuxiApp - Mapa</h1>
-  <div class="usuario">
-    <span id="usuario-logueado">Hola, ...</span>
-    <button onclick="location.href='/'">Volver</button>
-  </div>
-</div>
+        <h1>AuxiApp - Mapa</h1>
+        <div class="usuario">
+            <span id="usuario-logueado">Hola, ...</span>
+            <button onclick="location.href='/'">Volver</button>
+        </div>
+    </div>
+    <!-- Segunda barra -->
+    <div class="navbar" style="background-color: #336699;">
+        <button onclick="location.href='/'">← Volver a Panel</button>
+    </div>
 
-<div id="map" style="height: calc(100vh - 60px);"></div>
+    <div style="padding: 20px;">
+        <div id="map" style="height: 600px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2);"></div>
+    </div>
 
-<div class="leyenda">
-  <strong>🗺 Leyenda:</strong><br>
-  🔴 Planilla activa<br>
-  🔵 Auxilio disponible
-</div>
-  <div id="map" style="height: 100vh;"></div>
+    <div class="leyenda" style="bottom: 20px; left: 20px;">
+        <strong>🗺 Leyenda:</strong><br>
+        🔴 Planilla activa<br>
+        🔵 Auxilio disponible
+    </div>
+    <div id="map" style="height: 100vh;"></div>
 </body>
-</html>
 
+</html>

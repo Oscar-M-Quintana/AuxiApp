@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>AuxiApp</title>
-  <link rel="stylesheet" href="css/estilos.css">
-  <script defer src="js/app.js"></script>
+    <meta charset="UTF-8">
+    <title>AuxiApp</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script defer src="js/app.js"></script>
 </head>
+
 <body>
-
-  <!-- Navbar fija -->
-  <div class="navbar">
-    <h1>AuxiApp</h1>
-    <div class="usuario">
-      <span id="usuario-logueado">Hola, ...</span>
-      <button onclick="logout()">Cerrar sesión</button>
+    <div style="text-align:center; margin-bottom: 20px;">
+        <img src="assets/icono.png" alt="Logo AuxiApp" style="width: 120px;">
     </div>
-  </div>
+    <!-- Navbar fija -->
+    <div class="navbar">
+        <h1>AuxiApp</h1>
+        <div class="usuario">
+            <span id="usuario-logueado">Hola, ...</span>
+            <button onclick="logout()">Cerrar sesión</button>
+        </div>
+    </div>
 
-  <!-- Texto introductorio (visible antes del login) -->
-  <div id="intro">
-    <p>Bienvenido a AuxiApp, la aplicación para gestionar planillas de auxilios.</p>
-    <p>Inicia sesión para ver tus planillas activas.</p>
-    <p>Si no tienes cuenta, contacta al administrador.</p>
-  </div>
+    <!-- Texto introductorio (visible antes del login) -->
+    <div id="intro">
+        <p>Bienvenido a AuxiApp, la aplicación para gestionar planillas de auxilios.</p>
+        <p>Inicia sesión para ver tus planillas activas.</p>
+        <p>Si no tienes cuenta, contacta al administrador.</p>
+    </div>
 
-  <!-- Formulario de login -->
-  <div id="login">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email"><br>
-    <input type="password" id="password" placeholder="Contraseña"><br>
-    <button onclick="login()">Iniciar sesión</button>
-  </div>
+    <!-- Formulario de login -->
+    <div id="login">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email"><br>
+        <input type="password" id="password" placeholder="Contraseña"><br>
+        <button onclick="login()">Iniciar sesión</button>
+    </div>
 
-  <!-- Vista principal con listado y botón de mapa -->
-  <div id="main" style="display:none;">
-    <h2>Planillas activas</h2>
-    <ul id="lista-planillas"></ul>
-    <br>
-    <button onclick="window.open('/mapa.html', '_blank')">🗺 Ver Mapa</button>
-  </div>
+    <!-- Vista principal con listado y botón de mapa -->
+    <div id="main" style="display:none;">
+        <h2>Planillas activas</h2>
+        <ul id="lista-planillas"></ul>
+        <br>
+        <button onclick="window.open('/mapa.html', '_blank')">🗺 Ver Mapa</button>
+    </div>
 
 </body>
-</html>
 
+</html>
