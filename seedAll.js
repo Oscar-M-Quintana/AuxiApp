@@ -16,13 +16,13 @@ const run = async () => {
         // Operadores
         {
             nombre: "Operador Principal",
-            email: "operador@auxi.com",
+            email: "operador@auxiapp.com",
             password: passOperador,
             rol: "operador",
         },
         {
             nombre: "Operador Secundario",
-            email: "operador2@auxi.com",
+            email: "operador2@auxiapp.com",
             password: passOperador,
             rol: "operador",
         },
